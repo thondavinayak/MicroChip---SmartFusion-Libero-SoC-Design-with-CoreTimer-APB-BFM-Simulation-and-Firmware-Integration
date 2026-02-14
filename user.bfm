@@ -1,0 +1,15 @@
+
+include "subsystem.bfm"
+
+procedure user_main;
+
+    write w APB_LED_CTRL 0x04 0x000000AA;
+    write w APB_LED_CTRL 0x08 0x0000FFFF;
+    write w APB_LED_CTRL 0x00 0x00000003;
+
+    wait 100;
+
+    read w APB_LED_CTRL 0x0C;
+    write w APB_LED_CTRL 0x10 0x00000001;
+
+return
